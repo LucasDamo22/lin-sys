@@ -12,6 +12,7 @@ using namespace std;
 int check_convergence(unordered_map<string, double> previous, unordered_map<string, double> current, double tolerance){
     double max_diff = 0;
 
+
     for(const auto& pair : previous){
         string key = pair.first;
         double prev_value = pair.second;
@@ -27,12 +28,12 @@ int check_convergence(unordered_map<string, double> previous, unordered_map<stri
 int main(int argc, char* argv[]) {
     string filename = argv[1];
     ifstream file(filename);
+    cout << "==============================" << endl;
     if (!file.is_open()) {
         cerr << "Error: Could not open file " << filename << endl;
         return 1;
     } else {
-        cout << "==============================" << endl;
-        cout << "solving :" << filename << endl;
+        cout << "solving: " << filename << endl;
     }
     string line;
 
@@ -112,6 +113,7 @@ int main(int argc, char* argv[]) {
     cout << fixed << setprecision(5);
     cout << "City with the most amount of arrivals : " << max_city << " -> " << max_people << endl;
     cout << "City with the least amount of arrivals: " << min_city << " -> " << min_people << endl;
+    cout << "==============================" << endl;
 
     return 0;
 }

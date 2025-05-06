@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -Wall -Wextra -g -std=c++20
+CXXFLAGS = -Wall -g 
 
 SRC_DIR = src
 BIN_DIR = bin
@@ -16,7 +16,7 @@ $(TARGET): $(SRCS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 run: $(TARGET)
-	./$(TARGET) $(CASE_DIR)/caso10.txt 300000; \
+	@./$(TARGET) $(CASE_DIR)/caso10.txt 300000; \
 	./$(TARGET) $(CASE_DIR)/caso20.txt 300000; \
 	./$(TARGET) $(CASE_DIR)/caso30.txt 300000; \
 	./$(TARGET) $(CASE_DIR)/caso50.txt 300000; \
