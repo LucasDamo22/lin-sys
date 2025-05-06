@@ -13,6 +13,7 @@ int main() {
     string line;
 
     unordered_map<string, int> cityToIndex;
+    unordered_map<string, int> cityToAmount;
     vector<string> indexToCity;
     vector<tuple<string, string, int>> connections;
 
@@ -39,6 +40,7 @@ int main() {
                 // This line has a city and its value (2 entries)
                 if (cityToIndex.find(city1) == cityToIndex.end()) {
                     cityToIndex[city1] = cityToIndex.size();
+                    cityToAmount[city1] = stoi(city2);
                     indexToCity.push_back(city1);
                 }
             }
@@ -55,19 +57,7 @@ int main() {
         matrix[i][j] = value;
     }
 
-    // Print the matrix
-    cout << "Matrix:\n\t";
-    for (const auto& city : indexToCity)
-        cout << city << "\t";
-    cout << "\n";
 
-    for (int i = 0; i < N; ++i) {
-        cout << indexToCity[i] << "\t";
-        for (int j = 0; j < N; ++j) {
-            cout << matrix[i][j] << "\t";
-        }
-        cout << "\n";
-    }
 
     return 0;
 }
